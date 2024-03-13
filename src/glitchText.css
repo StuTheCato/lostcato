@@ -1,0 +1,28 @@
+.glitch-text {
+    font-family: monospace;
+    color: #000;
+    background-color: #fff;
+    text-shadow:
+            0 0 2px #fff,
+            0 0 3px rgba(0, 0, 0, 0.2),
+            0 0 4px rgba(0, 0, 0, 0.3);
+    animation: glitch 1s infinite linear;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0 0 2px #fff, 0 0 3px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.3);
+    }
+    25% {
+        text-shadow: 2px 5px 2px #fff, 2px 5px 3px rgba(0, 0, 0, 0.2), 2px 5px 4px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        text-shadow: -2px -5px 2px #fff, -2px -5px 3px rgba(0, 0, 0, 0.2), -2px -5px 4px rgba(0, 0, 0, 0.3);
+    }
+    75% {
+        text-shadow: 5px 2px 2px #fff, 5px 2px 3px rgba(0, 0, 0, 0.2), 5px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 2px #fff, 0 0 3px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.3);
+    }
+}
