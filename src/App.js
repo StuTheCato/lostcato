@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
-import GlitchText from './GlitchText'; // Import the GlitchText component
+import { useGlitch } from "react-powerglitch"; // Import the useGlitch hook
 
 const sentences = [
-  'Hello buddy :)',
-  'How are you today?',
-  'How did you find me?',
+  "Hello buddy :)",
+  "How are you today?",
+  "How did you find me?",
 ];
 
 function App() {
   const [currentSentence, setCurrentSentence] = useState(0);
+  const glitch = useGlitch(); // Call useGlitch to control glitch effect
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -31,10 +31,12 @@ function App() {
   }, [currentSentence]); // Dependency ensures re-render on state change
 
   return (
-      <div className="App">
-        {/* Display the current sentence using GlitchText */}
-        <p key={currentSentence} className="message">
-          <GlitchText text={sentences[currentSentence]}/>
+      <div className="App" style={{ backgroundColor: "black", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        {/* Display the current sentence with glitch effect */}
+        <p key={currentSentence} className="message" style={{ fontSize: "48px", color: "white" }}>
+        <span ref={glitch.ref}>
+          {sentences[currentSentence]}
+        </span>
         </p>
       </div>
   );
